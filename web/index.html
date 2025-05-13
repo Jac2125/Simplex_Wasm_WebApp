@@ -2,21 +2,63 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Simplex Web App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simplex Web App - Dynamic Table</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* 목적함수 c 입력란 가로 정렬 */
+    #cFunc {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+    #cInputs {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .cCell {
+      width: 4rem;
+    }
+  </style>
 </head>
 <body>
   <h1>Simplex 최적화</h1>
   <div id="app">
-    <!-- 1) 행렬 입력 -->
-    <textarea id="matrixA" placeholder="A 행렬 (콤마/줄바꿈 구분)"></textarea>
-    <input id="vectorB" placeholder="b 벡터 (콤마 구분)">
-    <input id="vectorC" placeholder="c 벡터 (콤마 구분)">
+    <div class="controls">
+      <button id="addRowBtn">행 추가</button>
+      <button id="removeRowBtn">행 제거</button>
+      <button id="addColBtn">열 추가</button>
+      <button id="removeColBtn">열 제거</button>
+    </div>
+
+    <!-- ① c 입력란을 가로로 정렬 -->
+    <div id="cFunc">
+      <label for="cInputs">목적함수 계수 (c):</label>
+      <div id="cInputs"><!-- js에서 여기에 입력칸을 채웁니다 --></div>
+    </div>
+
+    <table id="matrixTable">
+      <thead>
+        <tr id="headerRow">
+          <th>x₁</th><th>x₂</th><th>b</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <tr>
+          <td><input type="text" class="cell num" /></td>
+          <td><input type="text" class="cell num" /></td>
+          <td><input type="text" class="cell num" /></td>
+        </tr>
+      </tbody>
+    </table>
+
     <button id="solveBtn">계산하기</button>
-    <!-- 2) 결과 출력 -->
     <pre id="output"></pre>
   </div>
+
+  <!-- ② 스크립트 로드 순서: simplex.js 먼저, 그 다음 ui.js -->
   <script src="simplex.js"></script>
-  <script src="main.js"></script>
+  <script src="ui.js"></script>
 </body>
 </html>
