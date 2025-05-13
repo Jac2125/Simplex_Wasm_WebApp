@@ -1,0 +1,15 @@
+New version:
+emcc cpp/simplex.cpp -O3 \
+  -s WASM=1 \
+  -s EXPORTED_FUNCTIONS="['_run_simplex','_malloc','_free']" \
+  -s EXPORTED_RUNTIME_METHODS="['cwrap','HEAPU8','HEAPF64']" \
+  -o web/simplex.js
+
+
+Old:
+emcc cpp/simplex.cpp -O3 \
+  -s WASM=1 \
+  -s EXPORTED_FUNCTIONS="['_run_simplex','_malloc','_free']" \
+  -s EXPORTED_RUNTIME_METHODS="['ccall','cwrap','HEAPU8','HEAPF64']" \
+  -o web/simplex.js
+
