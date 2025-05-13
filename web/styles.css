@@ -1,0 +1,4 @@
+body { font-family: sans-serif; padding: 2rem; }
+textarea, input { display: block; margin: .5rem 0; width: 100%; }
+button { padding: .5rem 1rem; }
+pre { background: #f4f4f4; padding: 1rem; }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Simplex Web App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Simplex 최적화</h1>
+  <div id="app">
+    <!-- 1) 행렬 입력 -->
+    <textarea id="matrixA" placeholder="A 행렬 (콤마/줄바꿈 구분)"></textarea>
+    <input id="vectorB" placeholder="b 벡터 (콤마 구분)">
+    <input id="vectorC" placeholder="c 벡터 (콤마 구분)">
+    <button id="solveBtn">계산하기</button>
+    <!-- 2) 결과 출력 -->
+    <pre id="output"></pre>
+  </div>
+  <script src="simplex.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
